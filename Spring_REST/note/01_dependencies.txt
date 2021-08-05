@@ -1,0 +1,8 @@
+01_dependencies.txt
+
+
+	이 프로젝트에 새로 추가한 것
+	
+	- jackson-databind
+	- jackson-dataformat-xml
+	- gson
