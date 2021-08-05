@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+      <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+      <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521/XEPDB1"/>
+      <property name="username" value="java1"/>
+      <property name="password" value="1234"/>
+   </bean>
+   
+   <!-- 
+      HikariConfig config = new HikariConfig();
+      config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521/XEPDB1");
+      config.setUsername("hr");
+      config.setPassword("1234");
+      config.addDataSourceProperty("cachePrepStmts", "true");
+      config.addDataSourceProperty("prepStmtCacheSize", "250");
+      config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+
+    -->
+   
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+      <constructor-arg ref="hikariConfig"/>
+   </bean>
+   
+   <!-- dataSource를 사용해 마이바티스 팩토리를 생성한다 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+   <bean id="menuService" class="com.kgitbank.service.MenuServiceImpl" scope="request">	</bean>
+   
+  <context:component-scan base-package="com.kgitbank.service" />
+   <mybatis-spring:scan base-package="com.kgitbank.mapper"/>
+<!--    <mybatis-spring:scan base-package="com.kgitbank.dbpractice"/> -->
+
+</beans>
+

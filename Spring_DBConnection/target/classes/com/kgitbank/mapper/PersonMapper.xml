@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgitbank.mapper.PersonMapper">
+
+<select id="select" resultType="com.kgitbank.model.Person">
+       select * from person
+  </select>
+  
+  <insert id="insert" >
+  	insert into person values (#{name}, #{age}, #{address})
+  </insert>
+  
+  <delete id="delete">
+  	delete from person where = #{person.name}
+  </delete>
+</mapper>

@@ -1,0 +1,31 @@
+03_myBatis를 사용한 DB연결.txt
+
+
+ # Mybatis
+ 
+ 	- SQL문만 적으면 DB와 연결하는 계층의 코드(영속 계층)를 쉽게 작성하도록 도와주는 프레임 워크
+ 	- 거의 모든 JDBC 코드를 알아서 생성해서 사용해준다
+ 	- 사용자는 쿼리문의 종류와 원하는 SQL만 작성하면 된다
+ 	- XML 또는 어노테이션 방식으로 설정할 수 있다 
+ 	- Mapper 인터페이스를 생성한 뒤 해당 인터페이스와 같은 경로에 있는 XML을 통해 해당 인터페이스의 실체를 구현할 수 있다
+ 	
+ # Mybatis XML 파일 형식
+ 
+ 	<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgitbank.mapper.PersonMapper">
+
+<select id="select" resultType="com.kgitbank.model.Person">
+       select * from person
+  </select>
+  
+  <insert id="insert" >
+  	insert into person values (#{name}, #{age}, #{address})
+  </insert>
+  
+  <delete id="delete">
+  	delete from person where = #{name}
+  </delete>
+</mapper>

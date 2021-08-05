@@ -1,0 +1,9 @@
+01_dependencies.txt
+
+	# 이 프로젝트에서 사용한 다른 프로젝트들
+	 
+	 - HikariCP
+	 - Log4j
+	 - Spring-tx
+	 - Spring-jdbc
+	 - Mybatis-spring

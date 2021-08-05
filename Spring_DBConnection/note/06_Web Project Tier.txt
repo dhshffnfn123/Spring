@@ -1,0 +1,68 @@
+
+06_Web Project Tier.txt
+
+ # 화면 계층 (Presentation Tier)
+ 	-> 화면에 보여주는 코드를 작성하는 계층 (JSP)
+ 
+ # 비즈니스 계층 (Business Tier)
+ 	-> 고객이 원하는 요구사항을 구현하는 코드들 (xxxService라는 이름으로 표시한 서비스 컴포넌트 구현)
+ 
+ # 영속 계층 (데이터 계층, Persistence Tier)
+ 	-> Mybatis를 통해 생성되는 DB 접근 코드들
+ 	
+ 	
+ 	
+ # 웹 프로젝트 계층 구조에 따른 클래스 이름 규칙
+ 
+  - 컨트롤러 클래스 : xxxController
+  
+  - 비즈니스 로직 클래스 : xxxService (인터페이스), xxxServiceImp1 (인터페이스 구현체)
+  
+  - 데이터 접근 클래스 : xxxDAO, xxxRepository, xxxMapper (DB와의 통신을 담당하는 코드들) 
+  
+  - 데이터 클래스 : xxxVO, xxxDTO
+  
+  
+ # 패키지 이름 규칙
+ 
+  - 프로젝트 규모가 작은 경우
+  	ㄴ 컨트롤러와 서비스를 구분할 수 있도록 패키지를 작성한다
+  	ㄴ ex) com.mycompany.projectname.controller.UserController
+  	
+  - 프로젝트 규모가 큰 경우
+  	ㄴ 우선 비즈니스 단위별로 패키지를 구분한 뒤 다시 내부에서 컨트롤러와 서비스를 구분한다
+  	ㄴ ex1) com.mycompany.projectname.membermanage.controller.UserController
+  	ㄴ ex2) com.mycompany.projectname.adminboard.controller.AdminBoardController
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
