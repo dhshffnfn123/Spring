@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="file_appender" class="org.apache.log4j.FileAppender">
+		<param name="file" value="./note/log/mylog.html" />
+		<layout class="org.apache.log4j.HTMLLayout">
+		</layout>
+	</appender>
+	
+	<appender name="file_appender_rsp" class="org.apache.log4j.FileAppender">
+		<param name="file" value="./note/log/Rsplog.html" />
+		<layout class="org.apache.log4j.HTMLLayout">
+		</layout>
+	</appender>
+	
+	<!-- 
+		1. PatternLayout의 서식문자 정리하기
+			 %c  카테고리 이름을 출력한다.. %c{1} 같은 형식으로 쓸 수 있다. %c{1} 이라면 최하위 레벨의 카테고리 이름을 출력한다는 뜻이다. test.log4j.TestLog4j 라면, TestLog4j만 출력된다.
+			 %C	 로그를 생성한 클래스명(카테고리명과는 다른것이다.)을 출력한다. %C{2} 같은 형식으로 쓸 수 있다. test.log4j.TestLog4j 라면, log4j.TestLog4j만 출력된다.
+			 %d	 날짜를 출력한다. %d{yyyy-MMM-dd HH:mm:ss,SSS} 같이 지정할수도 있고, %d{ISO8601} 처럼 쓸 수도 있다.
+			 %l	 로그가 발생한 위치의 LocationInfo 정보를 출력한다. 아래 %F, %L, %M 정보라고 보면 되는데, JVM statck을 참조하므로, 특정 JVM에서 정상작동하지 않을수도있고, overhead가 심한편이라서 잘 사용하지 않는다.
+			 %F	 로그가 발생한 파일명을 출력한다.
+			 %L	 로그가 발생한 소스의 행번호를 출력한다.
+			 %M	 로그가 발생한 메소드의 이름을 출력한다.
+			 %m	 로그 메시지를 출력한다. 
+			 %n	 개행 문자를 출력한다. 
+			 %p	 로그 레벨을 출력한다.
+			 %r	 응답 시간을 출력한다.(ms)
+			 %t	 로그를 생성한 쓰레드명을 출력한다.
+			 %x	 NDC의 값을 출력한다. 
+			 %X{key}	 MDC의 key값을 출력한다
+			
+		2. PatternLayout을 이용한 RollingFileAppender 생성하고 사용해보기
+		
+			※ RollingFileAppender
+			
+			파일 하나에 모든 로그를 기록하면 파일이 너무 커지기 때문에 일정 크기 이상이 되면
+			다음 파일로 옮겨서 저장하는 방식의 FileAppender
+		
+		3. PatternLayout을 이용한 DailyRollingFileAppender 생성하고 사용해보기
+		
+			※ DailyRollingFileAppender
+			
+			매일 새로운 파일에 로그를 기록하는 FileAppender
+	
+	 -->
+	 <!-- RollingFileAppender -->
+	 <appender name="rollingFile" class="org.apache.log4j.RollingFileAppender">
+	 	<!-- 로그 파일명 정의를 위한 parameter -->
+	 	<param name="File" value="./note/log/rolling.log"/>
+		<!-- 이전 로그 파일에 로그를 덧붙여 쓸 것인지를 정의하기 위한 parameter -->	 	
+		<param name="Append" value="true"/>
+	 	<layout class="org.apache.log4j.PatternLayout">
+	 		<param name="ConversionPattern" value="%d{yyyy-MM-dd hh:mm:ss aa} [%p] - %C{1}. %M(%L) | %m%n"/>
+	 	</layout>
+	 </appender>
+	 
+	 <!-- DailyRollingFileAppender -->
+	 <appender name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+	 	<!-- 로그 파일명 정의를 위한 parameter -->
+	 	<param name="File" value="./note/log/daily.log"/>
+	 	<!-- 로그 파일을 Rolling하기 위한 날짜 조건을 정의하기 위한 parameter -->
+	 	<param name="DataPattern" value=".yyyy-MM-dd-HH-mm"/>
+	 	<layout class="org.apache.log4j.PatternLayout">
+	 		<param name="ConversionPattern" value="%d %p [%c] - &lt;%m&gt;%n"/>
+	 	</layout>
+	 </appender>
+	
+	
+	
+	<!-- Application Loggers -->
+	<logger name="com.kgitbank.practice">
+		<level value="info" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>	
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.kgitbank.model">
+		<level value="all" />
+		<appender-ref ref="file_appender" />		
+	</logger>
+	
+	<logger name="com.kgitbank.service">
+		<level value="info" />
+		<appender-ref ref="file_appender_rsp" />		
+	</logger>
+	
+	<logger name="com.kgitbank.service">
+		<level value="info" />
+		<appender-ref ref="rollingFile" />		
+	</logger>
+	
+	<logger name="com.kgitbank.service">
+		<level value="info" />
+		<appender-ref ref="dailyRollingFile" />		
+	</logger>
+	
+	<!-- Root Logger : 개별 설정이 존재하지 않는 로거들이 모두 사용하는 설정 -->
+	<root>
+		<priority value="info" />
+		<appender-ref ref="console" />
+	</root>
+	
+</log4j:configuration>

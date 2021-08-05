@@ -1,0 +1,20 @@
+07_Spring MVC.txt
+
+	# 스프링 MVC의 구조
+	
+		- 프로젝트 구동 시 xml을 활용하여 편리하게 다양한 설정들을 하도록 미리 설계되어 있다
+		- 프로젝트 설정에 관여하는 xml은 web.xml, root-context.xml, servlet-context.xml이다
+		- root-context.xml의 경로는 web.xml에 context-param(전역 초기화 파라미터)로 등록되어 있다
+		- servlet-context.xml의 경로는 appServlet의 초기화 파라미터(init-param)로 등록되어 있다 
+		
+	
+	# 스프링 MVC에서 사용자의 요청이 처리되는 순서
+		
+		1. HttpRequest가 DispatcherServlet에 도착한다
+		
+		2. 요청받은 URL을 통해 컨텍스트에 등록된 빈들 중 가장 알맞는 컨트롤러를 찾는다
+		
+		3. 해당 컨트롤러를 모두 실행한 후 값을 리턴 받는데 리턴받는 타입에 따라 뷰를 찾는 방식이 달라진다
+			(String, Model, ModelAndView, ...)
+		
+		4. 컨트롤러의 실행 결과가 ViewResolver 클래스가 해석하여 어떤 웹 페이지를 응답할 지 결정한다 

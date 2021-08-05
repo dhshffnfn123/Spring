@@ -1,0 +1,18 @@
+02_의존성 주입.txt
+
+
+
+	@Component : 스프링에서 관리해야하는 대상이 된다. 
+				 컴포넌트 스캔을 통해 스프링으 컴포넌트로 등록된다.
+				 
+				 
+	@Autowired : 스프링 코드가 진행되다가 Autowired를 만나면 이 어노테이션이 붙어있는 곳에 자동으로 의존성을 주입한다.
+				 등록된 컴포넌트들 중에서 가장 적합한 컴포넌트를 선택하여 주입한다.
+				 
+	
+	<context:component-scan base-package="">
+		 : root-context 또는 servlet-context에서 사용할 컴포넌트를 스캔한다
+		 : base-package 어트리뷰트에 스캔할 패키지 경로를 적는다.
+		 
+	
+	스프링에서 관리되는 객체를 '빈(Bean)'이라고 부르고, 빈은 xml을 통해 등록한다.

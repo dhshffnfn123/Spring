@@ -1,0 +1,54 @@
+05_Maven.txt
+
+	# POM (Project Object Model)
+		
+		- 프로젝트에 대한 모든 정보를 담고 있는 파일
+		- Maven은 프로젝트를 항상 pom.xml에 적혀 있는대로 유지해주는 프로그램이다
+		- pom.xml에는 프로젝트의 모든  설정과 의존성에 대한 정보들을 담고 있다
+		
+	
+	# pom.xml의 태그 정보
+	
+		<name> : 프로젝트 이름
+		<artifactId> : 외부에서 볼 우리 프로젝트 이름
+		<groupId> : 프로젝트의 그룹 ID
+		<version> : 버전 설정
+		<packaging> : 배포할 파일의 타입을 설정
+		<dependencies> : 이 프로젝트에서 의존하는 다른 프로젝트들을 적는 곳
+		<dependency> : 의존하는 프로젝트의 POM 정보를 적는 곳
+					   의존하는 프로젝트으 groupId, artifactId, version 그리고 프로젝트에 적용될 범위를 설정한다
+		
+		
+	# <scope>
+		
+		- 해당 dependency가 프로젝트에서 영향을 미치는 범위를 생성한다
+		
+		- compile : 컴파일 할 때 필요한 의존성
+					컴파일 당시에도 사용되고, 배포에도 포함된다 (기본값)
+		
+		- runtime : 런타임에 필요한 의존성
+					컴파일 당시에는 사용되지 않고, 배포에는 포함된다 (ojdbc, sl4j 등)
+		
+		- provide : 컴파일 할 때는 필요하지만 런타임때에는 기본적으로 제공되는 의존성
+					컴파일 당시에는 사용되고 배포에는 포함되지 않는다 (jstl, jsp 등)
+		
+		- test : 테스트 코드를 컴파일 할 때만 필요한 의존성
+				 테스트시에만 사용되고, 배포에는 포함되지 않는다 
+				 
+	
+	# 원격 레포지토리와 로컬 레포지토리
+		
+		- Maven은 <dependencies>에 설정한 의존하는 모듈들을 중앙 원격 레포지토리에서 다운받는다
+		
+		- %USER_HOME%/.m2/repository 폴더 내부에 다운받은 모듈들이 관리된다 (Local repository) 
+		C:\Users\82109\.m2\repository : maven이 관리해주는 폴더
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		

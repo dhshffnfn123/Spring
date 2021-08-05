@@ -1,0 +1,29 @@
+04_Lombok.txt
+
+
+	# Lombok 설치 방법
+		1. Google에 lombok을 검색한다
+		2. Download를 한다
+		3. lombok.jar를 실행한다 (or 설치프로그램 폴더 위치에서 콘솔로 java -jar lombok.jar)
+		4. 원하는 Eclipse의 위치를 지정한다 (설치경로에 한글이 있으면 안된다)
+		5. pom.xml에 설치한 lombok과 일치하는 버전의 dependency를 복붙한다
+
+	
+	# Lombok
+		- 어노테이션만 붙이면 자바빈 스타일의 객체로 완성해주는 라이브러리
+		
+		
+		
+	# 사용하는 어노테이션들
+		
+		@NonNull : 해당 필드에 반드시 값이 있어야 함
+		@Getter : 모든 필드에 Getter를 자동으로 생성
+		@Setter : 모든 필드에 Setter를 자동으로 생성
+		@ToString : 모든 필드값을 출력하는 toString()을 알아서 오버라이드
+		@EqualsAndHashCode : equals와 hashCode를 알아서 생성
+		@Data : 클래스 내부의 모든 필드에 대해 Getter/Setter를 생성, toString, equals, hashCode 오버라이드, 생성자도 자동으로 생성
+		@Log4j : Log4j 연결을 자동으로 생성
+		@NoArgsConstructor : 기본 생성자를 자동으로 생성
+		@RequiredArgsConstructor : @NonNull이 붙은 필드만 채우는 생성자 생성
+		@AllArgsConstructor : 모든 필드값을 채우는 생성자 자동으로 생성
+		
