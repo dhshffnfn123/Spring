@@ -1,30 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<h3> # CRUD ¿¬½À¿¡ »ç¿ëÇß´ø Å×ÀÌºíÀ» ÅëÇØ ´ÙÀ½À» ¸¸µé¾îÁÖ¼¼¿ä</h3>
+	<h3> # CRUD ì—°ìŠµì— ì‚¬ìš©í–ˆë˜ í…Œì´ë¸”ì„ í†µí•´ ë‹¤ìŒì„ ë§Œë“¤ì–´ì£¼ì„¸ìš”</h3>
 	
 	<ul>
-		<li>°»½Å ¹öÆ°À» ´©¸£¸é ÆäÀÌÁö°¡ º¯ÇÏÁö ¾ÊÀ¸¸é¼­ CRUD Å×ÀÌºíÀÇ ¸ðµç ³»¿ëÀ» display Å×ÀÌºí¿¡ Ãâ·ÂÇÑ´Ù</li>
+		<li>ê°±ì‹  ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ íŽ˜ì´ì§€ê°€ ë³€í•˜ì§€ ì•Šìœ¼ë©´ì„œ CRUD í…Œì´ë¸”ì˜ ëª¨ë“  ë‚´ìš©ì„ display í…Œì´ë¸”ì— ì¶œë ¥í•œë‹¤</li>
 		<li>
-			display Å×ÀÌºíÀÇ ¸Ç À­ÁÙ¿¡´Â »õ·Î¿î ÇàÀ» Ãß°¡ÇÒ ¼ö ÀÖ´Â ÀÔ·Â¶õÀÌ Á¸ÀçÇÏ°í Ãß°¡ ¹öÆ°À» ´©¸£¸é ÆäÀÌÁö°¡ º¯ÇÏÁö
-			¾ÊÀ¸¸é¼­ Ãß°¡¿Í ÇÔ²² Å×ÀÌºí ¸ñ·ÏÀÌ °»½ÅµÈ´Ù
+			display í…Œì´ë¸”ì˜ ë§¨ ìœ—ì¤„ì—ëŠ” ìƒˆë¡œìš´ í–‰ì„ ì¶”ê°€í•  ìˆ˜ ìžˆëŠ” ìž…ë ¥ëž€ì´ ì¡´ìž¬í•˜ê³  ì¶”ê°€ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ íŽ˜ì´ì§€ê°€ ë³€í•˜ì§€
+			ì•Šìœ¼ë©´ì„œ ì¶”ê°€ì™€ í•¨ê»˜ í…Œì´ë¸” ëª©ë¡ì´ ê°±ì‹ ëœë‹¤
 		</li>
 		<li>
-			display Å×ÀÌºíÀÇ µ¥ÀÌÅÍ ÇàÀÇ ¸Ç ¿À¸¥ÂÊ¿¡´Â »èÁ¦¹öÆ°ÀÌ Á¸ÀçÇÏ¸ç 
-			»èÁ¦¹öÆ°À» ´©¸£¸é ÇØ´ç ÇàÀÌ »èÁ¦µÇ¸ç Å×ÀÌºí ¸ñ·ÏÀÌ °»½ÅµÈ´Ù
+			display í…Œì´ë¸”ì˜ ë°ì´í„° í–‰ì˜ ë§¨ ì˜¤ë¥¸ìª½ì—ëŠ” ì‚­ì œë²„íŠ¼ì´ ì¡´ìž¬í•˜ë©° 
+			ì‚­ì œë²„íŠ¼ì„ ëˆ„ë¥´ë©´ í•´ë‹¹ í–‰ì´ ì‚­ì œë˜ë©° í…Œì´ë¸” ëª©ë¡ì´ ê°±ì‹ ëœë‹¤
 		</li>
 	</ul>
 	
 	<hr />
 	
-	<table id="display"></table>
+	<table id="display" border="3">
+		<tr>
+			<td>TEST</td>		
+			<td>TSET</td>
+			<td>STET</td>
+		</tr>
+	</table>
+	
+	<button id="selectBtn">Personì˜ ëª¨ë“  ì •ë³´ ì¡°íšŒ</button>
+	<script src="<%=request.getContextPath() %>/resources/js/person_home.js"></script>
+	
 
 </body>
 </html>

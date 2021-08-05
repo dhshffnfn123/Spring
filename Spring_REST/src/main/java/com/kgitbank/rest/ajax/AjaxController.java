@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AjaxController {
 
-	@GetMapping("/")
+	@GetMapping("/home1")
 	public String home() {
 		return "/ajax/home";
+	}
+	
+	@GetMapping("/person")
+	public String person() {
+		return "/ajax/person_home";
 	}
 }
